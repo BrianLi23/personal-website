@@ -1,17 +1,24 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 import Head from "next/head";
-import { BsFillMoonStarsFill } from "react-icons/bs";
+import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import {
   AiFillGithub,
   AiFillInstagram,
   AiFillLinkedin,
   AiOutlineMail,
 } from "react-icons/ai";
+
 import { useState } from "react";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     /* */
     <div className={`font-nexa ${darkMode ? "dark" : ""}`}>
@@ -21,16 +28,24 @@ export default function Home() {
         <link rel="icon" herf="/favicon.ico" sizes="any" />
       </Head>
 
-      <main className="bg-white px-10 dark:bg-black">
+      <main className="bg-white px-10 dark:bg-slate-700">
         <section className="min-h-screen">
           <nav className="p-10 mb-12 flex justify-between">
             <Image src={"/websitelogo.png"} width={200} height={200} />
             <ul className="font-nexa flex items-center">
-              <li>
-                <BsFillMoonStarsFill 
-                onClick{() => setDarkMode(!darkMode)} 
-                className="cursor-pointer text-2xl relative mb-20" />
-              </li>
+              <button onClick={toggleDarkMode}>
+                {darkMode ? (
+                  <BsFillSunFill
+                    className="cursor-pointer text-2xl relative mb-20"
+                    color="white"
+                  />
+                ) : (
+                  <BsFillMoonStarsFill
+                    className="cursor-pointer text-2xl relative mb-20"
+                    color="rgb(51,65,85)"
+                  />
+                )}
+              </button>
               <li className="relative mb-20">
                 <a
                   className="bg-gradient-to-r from-slate-300 to-slate-400 text-white px-4 py-2 rounded-md ml-8"
