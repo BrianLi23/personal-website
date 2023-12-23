@@ -1,5 +1,14 @@
-import React from "react";
+"use client";
 
-export default function darkMode() {
-  return <div>lightdark-mode</div>;
+import { useState } from "react";
+
+export default function useDarkMode() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    console.log("darkmode clicked");
+  };
+
+  return { darkMode, toggleDarkMode };
 }

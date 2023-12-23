@@ -1,6 +1,11 @@
+"use client";
 import React from "react";
+import useDarkMode from "./darkmode";
+import Image from "next/image";
+import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 export default function Header() {
+  const { darkMode, toggleDarkMode } = useDarkMode();
   return (
     <nav className="p-10 mb-12 flex justify-between">
       {darkMode ? (
@@ -9,7 +14,7 @@ export default function Header() {
         <Image src={"/websitelogodark.png"} width={200} height={200} />
       )}
       <ul className="font-nexa flex items-center">
-        <button onClick={toggleDarkMode}>
+        <button type="button" onClick={toggleDarkMode}>
           {darkMode ? (
             <BsFillSunFill
               className="cursor-pointer text-2xl relative mb-20"
