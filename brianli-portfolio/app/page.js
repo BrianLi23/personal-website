@@ -10,6 +10,7 @@ import {
 } from "react-icons/ai";
 import useDarkMode from "@/components/darkmode";
 import Header from "@/components/header";
+import Timeline from "@/components/timeline";
 
 export default function Home() {
   const { darkMode } = useDarkMode();
@@ -35,57 +36,65 @@ export default function Home() {
         <section className="min-h-screen">
           <Header />
           <div className="flex">
-            <span className="relative max-w-xl overflow-hidden ml-10 ">
-              <Image
-                src={"/websitepic2.jpg"}
-                width={500}
-                height={500}
-                className="w-full h-full object-cover transition-all duration-300 transform hover:scale-110"
-              />
-              <div className="absolute bottom-0 left-0 w-full h-2 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </span>
-            <span className="pl-64">
+            <div className="ml-10">
+              <div className="inline-block max-w-[520px] max-h-[667px] relative overflow-hidden ">
+                <Image
+                  src={"/websitepic2.jpg"}
+                  width={520}
+                  height={500}
+                  className="object-cover transition-all duration-300 transform hover:scale-110"
+                />
+              </div>
+              <div className="text-5xl flex justify-start gap-28 py-10 text-slate-700">
+                <a
+                  href="https://github.com/BrianLi23"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AiFillGithub />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/brian-li2028/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AiFillLinkedin />
+                </a>
+
+                <a
+                  href="mailto:b77li@uwaterloo.ca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AiOutlineMail />
+                </a>
+
+                <a
+                  href="https://www.instagram.com/brixn.li/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AiFillInstagram />
+                </a>
+              </div>
+            </div>
+            <div className="pl-64">
               <h2 className="text-5xl py-2">Brian Li</h2>
               <h3 className="text-2xl py-2">Developer, Student, Learner</h3>
-              <p></p>
-            </span>
-          </div>
-          <div className="ml-10 ">
-            <div className="text-5xl flex justify-start gap-28 py-10 text-slate-700">
-              <a
-                href="https://github.com/BrianLi23"
-                target="_blank"
-                rel="noopener noreferrer"
+              <p
+                className="text-xl py-2 leading-loose "
+                style={{ maxWidth: "600px" }}
               >
-                <AiFillGithub />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/brian-li2028/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillLinkedin />
-              </a>
-
-              <a
-                href="mailto:b77li@uwaterloo.ca"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiOutlineMail />
-              </a>
-
-              <a
-                href="https://www.instagram.com/brixn.li/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <AiFillInstagram />
-              </a>
+                Hello, my name is Brian Li, a first year Computer Engineering
+                student at the University of Waterloo. My passions lie in AI
+                development and firmware tinkering; I'm keen on connectiing with
+                others and learning new things.
+              </p>
             </div>
           </div>
         </section>
+        <Timeline />
       </main>
     </div>
   );
