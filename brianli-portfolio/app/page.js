@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import {
@@ -12,13 +12,23 @@ import useDarkMode from "@/components/darkmode";
 import Header from "@/components/header";
 import Timeline from "@/components/timeline";
 
+// Used for the image viewing feature
+const imageMap = {
+  github: "/githubprofile.jpg",
+  linkedin: "/linkedinprofile.jpg",
+  instagram: "/instagramprofile.png",
+  white: "/white.png",
+};
+
 export default function Home() {
   const { darkMode } = useDarkMode();
   // This ensures that the component re-renders when darkMode changes
   useEffect(() => {
     // This forces a re-render when darkMode changes
-    console.log("something changed");
   }, [darkMode]);
+
+  const [photoVisible, setPhotoVisible] = useState(null);
+  const [currPhoto, setCurrPhoto] = useState("white");
 
   return (
     <div
@@ -50,6 +60,11 @@ export default function Home() {
                   href="https://github.com/BrianLi23"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onMouseEnter={() => setPhotoVisible("github")}
+                  onMouseLeave={() => {
+                    setPhotoVisible(null);
+                    setCurrPhoto("github");
+                  }}
                 >
                   <AiFillGithub />
                 </a>
@@ -58,6 +73,11 @@ export default function Home() {
                   href="https://www.linkedin.com/in/brian-li2028/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onMouseEnter={() => setPhotoVisible("linkedin")}
+                  onMouseLeave={() => {
+                    setPhotoVisible(null);
+                    setCurrPhoto("linkedin");
+                  }}
                 >
                   <AiFillLinkedin />
                 </a>
@@ -74,23 +94,42 @@ export default function Home() {
                   href="https://www.instagram.com/brixn.li/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onMouseEnter={() => setPhotoVisible("instagram")}
+                  onMouseLeave={() => {
+                    setPhotoVisible(null);
+                    setCurrPhoto("instagram");
+                  }}
                 >
                   <AiFillInstagram />
                 </a>
               </div>
             </div>
             <div className="pl-64">
-              <h2 className="text-5xl py-2">Brian Li</h2>
-              <h3 className="text-2xl py-2">Developer, Student, Learner</h3>
-              <p
-                className="text-xl py-2 leading-loose "
-                style={{ maxWidth: "600px" }}
-              >
-                Hello, my name is Brian Li, a first year Computer Engineering
-                student at the University of Waterloo. My passions lie in AI
-                development and firmware tinkering; I'm keen on connectiing with
-                others and learning new things.
-              </p>
+              <div>
+                <h2 className="text-5xl py-2">Brian Li</h2>
+                <h3 className="text-2xl py-2">Developer, Student, Learner</h3>
+                <p
+                  className="text-xl py-2 leading-loose "
+                  style={{ maxWidth: "600px" }}
+                >
+                  Hello, my name is Brian Li, a first year Computer Engineering
+                  student at the University of Waterloo. My passions lie in AI
+                  development and firmware tinkering; I'm keen on connectiing
+                  with others and learning new things.
+                </p>
+              </div>
+              <Image
+                src={
+                  photoVisible ? imageMap[photoVisible] : imageMap[currPhoto]
+                }
+                width={520}
+                height={500}
+                className={`transition-all content-center m-10 mt-28 duration-500 ${
+                  imageMap[photoVisible]
+                    ? "opacity-100 scale-100 duration-500"
+                    : "opacity-0 scale-90 pointer-events-none duration-500"
+                }`}
+              />
             </div>
           </div>
         </section>
