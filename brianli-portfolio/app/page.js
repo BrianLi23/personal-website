@@ -11,6 +11,9 @@ import {
 import useDarkMode from "@/components/darkmode";
 import Header from "@/components/header";
 import Timeline from "@/components/timeline";
+import Scroller from "@/components/scroller";
+import { motion } from "framer-motion";
+import SectionHeading from "@/components/sectionheading";
 
 // Used for the image viewing feature
 const imageMap = {
@@ -18,6 +21,8 @@ const imageMap = {
   linkedin: "/linkedinprofile.jpg",
   instagram: "/instagramprofile.png",
   white: "/white.png",
+  personalphoto1: "/websitepic1.jpg",
+  personalphoto2: "/websitepic5.jpg",
 };
 
 export default function Home() {
@@ -43,7 +48,13 @@ export default function Home() {
       </Head>
 
       <main className="bg-white px-10 dark:bg-slate-700">
-        <section className="min-h-screen">
+        <motion.section
+          className="min-h-screen"
+          initial={{ opacity: 0, y: -100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.175 }}
+        >
+          <Scroller />
           <Header />
           <div className="flex">
             <div className="ml-10">
@@ -112,28 +123,54 @@ export default function Home() {
                   className="text-xl py-2 leading-loose "
                   style={{ maxWidth: "600px" }}
                 >
-                  Hello, my name is Brian Li, a first year Computer Engineering
-                  student at the University of Waterloo. My passions lie in AI
-                  development and firmware tinkering; I'm keen on connectiing
-                  with others and learning new things.
+                  Hello, my name is{" "}
+                  <span
+                    onMouseEnter={() => setPhotoVisible("personalphoto1")}
+                    onMouseLeave={() => {
+                      setPhotoVisible(null);
+                      setCurrPhoto("personalphoto1");
+                    }}
+                    className="underline"
+                  >
+                    Brian Li,
+                  </span>{" "}
+                  a first year Computer Engineering student at the University of
+                  Waterloo. My passions lie in AI development and firmware
+                  tinkering; I'm keen on{" "}
+                  <span
+                    onMouseEnter={() => setPhotoVisible("personalphoto2")}
+                    onMouseLeave={() => {
+                      setPhotoVisible(null);
+                      setCurrPhoto("personalphoto2");
+                    }}
+                    className="underline"
+                  >
+                    connecting with others{" "}
+                  </span>
+                  and learning new things.
                 </p>
               </div>
-              <Image
-                src={
-                  photoVisible ? imageMap[photoVisible] : imageMap[currPhoto]
-                }
-                width={520}
-                height={500}
-                className={`transition-all content-center m-10 mt-28 duration-500 ${
-                  imageMap[photoVisible]
-                    ? "opacity-100 scale-100 duration-500"
-                    : "opacity-0 scale-90 pointer-events-none duration-500"
-                }`}
-              />
+              <div>
+                <Image
+                  src={
+                    photoVisible ? imageMap[photoVisible] : imageMap[currPhoto]
+                  }
+                  width={400}
+                  height={500}
+                  className={`transition-all content-center m-10 mt-15 duration-500 ${
+                    imageMap[photoVisible]
+                      ? "opacity-100 scale-100 duration-500"
+                      : "opacity-0 scale-90 pointer-events-none duration-500"
+                  }`}
+                />
+              </div>
             </div>
           </div>
-        </section>
+        </motion.section>
+        <SectionHeading>Timeline</SectionHeading>
         <Timeline />
+        <SectionHeading>Projects</SectionHeading>
+        <SectionHeading>Skills</SectionHeading>
       </main>
     </div>
   );

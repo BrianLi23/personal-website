@@ -9,7 +9,7 @@ import "react-vertical-timeline-component/style.min.css";
 
 export default function Timeline() {
   return (
-    <section>
+    <section className="m-16">
       <VerticalTimeline lineColor="#f3f4f6" animate={false}>
         {timelineData.map((data, index) => (
           <React.Fragment key={index}>
@@ -37,8 +37,8 @@ export default function Timeline() {
                 fontSize: "1.5rem",
               }}
             >
-              <h3 className="">{data.title}</h3>
-              <h4 className="">{data.location}</h4>
+              <h3 className="font-semibold capitalize">{data.title}</h3>
+              <h4 className="font-normal !mt-0">{data.location}</h4>
               <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
                 {data.description}
               </p>
