@@ -9,25 +9,28 @@ export const sectionLinks = [
     hash: "#about",
   },
   {
-    name: "Timeline",
-    hash: "#timeline",
-  },
-  {
     name: "Projects",
     hash: "#projects",
   },
+
   {
     name: "Skills",
     hash: "#skills",
+  },
+
+  {
+    name: "Timeline",
+    hash: "#timeline",
   },
 ];
 
 export const timelineData = [
   {
-    title: "Born in Toronto, Ontario, Canada",
-    location: "June 18 | 2005",
-    date: "June 18 | 2005",
-    description: "Canadian Chinese",
+    title: "Canadian Citizen",
+    location: "Born in Toronto, Ontario, Canad",
+    date: "June 18, 2005",
+    description:
+      "Chinese Canadian | Proficient in English and Conversational Chinese",
     icon: <GiNewBorn />,
   },
   {
@@ -43,5 +46,24 @@ export const timelineData = [
     description: " Bachelor of Applied Science in Computer Engineering",
     icon: <FaUniversity />,
     date: "2023 - 2028",
+  },
+];
+
+export const skillsList = [
+  {
+    title: "Programming Languages",
+    skills: ["C++", "Java", "JavaFx", "Python", "HTML", "CSS", "JavaScript"],
+  },
+  {
+    title: "Frameworks",
+    skills: ["React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    title: "Tools",
+    skills: ["Git", "GitHub", "Figma", "Audacity", "Adobe Premiere Pro"],
+  },
+  {
+    title: "Firmware",
+    skills: ["Arduino", "Raspberry Pi", "STM32CUBE"],
   },
 ];

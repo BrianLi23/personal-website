@@ -14,6 +14,8 @@ import Timeline from "@/components/timeline";
 import Scroller from "@/components/scroller";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/sectionheading";
+import Projects from "@/components/projects";
+import Skills from "@/components/skills";
 
 // Used for the image viewing feature
 const imageMap = {
@@ -47,7 +49,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
 
-      <main className="bg-white px-10 dark:bg-slate-700">
+      <main className="bg-white dark:bg-slate-700">
         <motion.section
           className="min-h-screen"
           initial={{ opacity: 0, y: -100 }}
@@ -56,7 +58,7 @@ export default function Home() {
         >
           <Scroller />
           <Header />
-          <div className="flex">
+          <div className="flex px-10">
             <div className="ml-10">
               <div className="inline-block max-w-[520px] max-h-[667px] relative overflow-hidden ">
                 <Image
@@ -166,11 +168,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <SectionHeading>Projects</SectionHeading>
+          <Projects />
+          <div className="mt-24">
+            <Skills />
+          </div>
+          <SectionHeading>Timeline</SectionHeading>
+          <Timeline />
         </motion.section>
-        <SectionHeading>Timeline</SectionHeading>
-        <Timeline />
-        <SectionHeading>Projects</SectionHeading>
-        <SectionHeading>Skills</SectionHeading>
       </main>
     </div>
   );
