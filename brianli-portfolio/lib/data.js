@@ -27,7 +27,7 @@ export const sectionLinks = [
 export const timelineData = [
   {
     title: "Canadian Citizen",
-    location: "Born in Toronto, Ontario, Canad",
+    location: "Born in Toronto, Ontario, Canada",
     date: "June 18, 2005",
     description:
       "Chinese Canadian | Proficient in English and Conversational Chinese",

@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <nav className="px-20 py-10 mb-12 flex justify-between">
       {darkMode ? (
-        <Image src={"/websitelogo.png"} w idth={200} height={200} />
+        <Image src={"/websitelogo.png"} width={200} height={200} />
       ) : (
         <Image src={"/websitelogodark.png"} width={200} height={200} />
       )}

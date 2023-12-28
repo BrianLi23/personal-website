@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "@/components/sectionheading";
 import Projects from "@/components/projects";
 import Skills from "@/components/skills";
+import Footer from "@/components/footer";
 
 // Used for the image viewing feature
 const imageMap = {
@@ -132,7 +133,7 @@ export default function Home() {
                       setPhotoVisible(null);
                       setCurrPhoto("personalphoto1");
                     }}
-                    className="underline"
+                    className="underline text-blue-800"
                   >
                     Brian Li,
                   </span>{" "}
@@ -145,7 +146,7 @@ export default function Home() {
                       setPhotoVisible(null);
                       setCurrPhoto("personalphoto2");
                     }}
-                    className="underline"
+                    className="underline text-blue-800"
                   >
                     connecting with others{" "}
                   </span>
@@ -175,6 +176,7 @@ export default function Home() {
           </div>
           <SectionHeading>Timeline</SectionHeading>
           <Timeline />
+          <Footer />
         </motion.section>
       </main>
     </div>
