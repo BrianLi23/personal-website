@@ -10,6 +10,7 @@ import SectionHeading from "@/components/sectionheading";
 import Projects from "@/components/projects";
 import Skills from "@/components/skills";
 import Footer from "@/components/footer";
+import AboutMe from "@/components/aboutme";
 
 export default function Home() {
   const { darkMode } = useDarkMode();
