@@ -9,7 +9,7 @@ import "react-vertical-timeline-component/style.min.css";
 
 export default function Timeline() {
   return (
-    <section className="m-16">
+    <section className="m-16 scroll-mt-48" id="timeline">
       <VerticalTimeline lineColor="#f3f4f6" animate={false}>
         {timelineData.map((data, index) => (
           <React.Fragment key={index}>

@@ -4,7 +4,10 @@ import { skillsList } from "@/lib/data";
 
 export default function Skills() {
   return (
-    <div className="bg-slate-700 flex flex-col items-center justify-center text-white ">
+    <div
+      className="bg-slate-700 flex flex-col items-center justify-center text-white scroll-mt-52"
+      id="skills"
+    >
       <h1 className="text-5xl text-white text-center mt-8 mb-9">Skills</h1>
       <div className="text-center mb-28 max-w-[53rem]">
         {skillsList.map((category, categoryIndex) => (

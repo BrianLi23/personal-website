@@ -4,7 +4,10 @@ import Image from "next/image";
 export default function Projects() {
   return (
     <React.Fragment>
-      <div className="mt-16 text-center content-center">
+      <div
+        className="mt-16 text-center content-center scroll-mt-52"
+        id="projects"
+      >
         <Image
           src={"/longdatavisual.png"}
           width={1200}
