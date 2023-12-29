@@ -42,7 +42,7 @@ export default function Home() {
           <Header />
           <AboutMe />
           <SectionHeading>Projects</SectionHeading>
-          <Projects id="projects" className="scroll-mt-28" />
+          <Projects />
           <div className="mt-24">
             <Skills />
           </div>
