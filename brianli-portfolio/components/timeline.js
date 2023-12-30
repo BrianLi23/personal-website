@@ -25,8 +25,7 @@ export default function Timeline() {
                 gap: "1rem",
               }}
               contentArrowStyle={{
-                borderRight: "0.4 rem solid #9ca3af",
-                color: "#9ca3af",
+                borderRight: "0.4rem solid rgba(51,65,85)",
               }}
               date={data.date}
               icon={data.icon}

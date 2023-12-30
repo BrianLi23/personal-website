@@ -11,6 +11,7 @@ import Projects from "@/components/projects";
 import Skills from "@/components/skills";
 import Footer from "@/components/footer";
 import AboutMe from "@/components/aboutme";
+import WorkExperience from "@/components/workexperience";
 
 export default function Home() {
   const { darkMode } = useDarkMode();
@@ -43,6 +44,8 @@ export default function Home() {
           <AboutMe />
           <SectionHeading>Projects</SectionHeading>
           <Projects />
+          <SectionHeading>Work Experience</SectionHeading>
+          <WorkExperience />
           <div className="mt-24">
             <Skills />
           </div>
