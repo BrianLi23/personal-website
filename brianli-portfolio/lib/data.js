@@ -79,15 +79,15 @@ export const projectsList = [
   {
     title: '"Are Mask Masking Your Voice?"',
     description:
-      "A JavaFx application that visualizes data from a CSV file using JavaFx. The application allows users to select the type of graph they want to visualize the data with, and also allows them to customize the graph.",
-    tags: ["Java", "JavaFx", "Object-Oriented Programming"],
+      "A science fair study project that discusses and examine the relationship between one’s sound output (amplitude and frequency) and their assoicated mask.",
+    tags: ["Figma", "Adobe Premiere Pro", "Audacity"],
     image: "/sciencefair.jpg",
   },
   {
     title: '"Sumo-Bot"',
     description:
-      "A JavaFx application that visualizes data from a CSV file using JavaFx. The application allows users to select the type of graph they want to visualize the data with, and also allows them to customize the graph.",
-    tags: ["Java", "JavaFx", "Object-Oriented Programming"],
+      'An autonomous "sumo-bot" built using an Arduino and Raspberry Pi. The robot was also controllable through a website hosted on the Raspberry Pi.',
+    tags: ["Arduino", "SSH Client", "Python", "Raspberry Pi"],
     image: "/sumobot.jpg",
   },
 ];
