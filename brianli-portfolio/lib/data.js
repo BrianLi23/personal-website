@@ -67,3 +67,27 @@ export const skillsList = [
     skills: ["Arduino", "Raspberry Pi", "STM32CUBE"],
   },
 ];
+
+export const projectsList = [
+  {
+    title: "Data Visualization Software",
+    description:
+      "A JavaFx application that visualizes data from a CSV file using JavaFx. The application allows users to select the type of graph they want to visualize the data with, and also allows them to customize the graph.",
+    tags: ["Java", "JavaFx", "Object-Oriented Programming"],
+    image: "/datavisualization.jpg",
+  },
+  {
+    title: '"Are Mask Masking Your Voice?"',
+    description:
+      "A JavaFx application that visualizes data from a CSV file using JavaFx. The application allows users to select the type of graph they want to visualize the data with, and also allows them to customize the graph.",
+    tags: ["Java", "JavaFx", "Object-Oriented Programming"],
+    image: "/sciencefair.jpg",
+  },
+  {
+    title: '"Sumo-Bot"',
+    description:
+      "A JavaFx application that visualizes data from a CSV file using JavaFx. The application allows users to select the type of graph they want to visualize the data with, and also allows them to customize the graph.",
+    tags: ["Java", "JavaFx", "Object-Oriented Programming"],
+    image: "/sumobot.jpg",
+  },
+];

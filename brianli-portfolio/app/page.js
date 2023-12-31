@@ -44,8 +44,6 @@ export default function Home() {
           <AboutMe />
           <SectionHeading>Projects</SectionHeading>
           <Projects />
-          <SectionHeading>Work Experience</SectionHeading>
-          <WorkExperience />
           <div className="mt-24">
             <Skills />
           </div>
