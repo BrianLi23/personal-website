@@ -75,6 +75,7 @@ export const projectsList = [
       "A JavaFx application that visualizes data from a CSV file using JavaFx. The application allows users to select the type of graph they want to visualize the data with, and also allows them to customize the graph.",
     tags: ["Java", "JavaFx", "Object-Oriented Programming"],
     image: "/datavisualization.jpg",
+    link: "https://github.com/BrianLi23/data-visualization-project",
   },
   {
     title: '"Are Mask Masking Your Voice?"',
@@ -82,6 +83,7 @@ export const projectsList = [
       "A science fair study project that discusses and examine the relationship between one’s sound output (amplitude and frequency) and their assoicated mask.",
     tags: ["Figma", "Adobe Premiere Pro", "Audacity"],
     image: "/sciencefair.jpg",
+    link: "https://projectboard.world/ysc/project/are-masks-masking-your-voice",
   },
   {
     title: '"Sumo-Bot"',
@@ -89,5 +91,14 @@ export const projectsList = [
       'An autonomous "sumo-bot" built using an Arduino and Raspberry Pi. The robot was also controllable through a website hosted on the Raspberry Pi.',
     tags: ["Arduino", "SSH Client", "Python", "Raspberry Pi"],
     image: "/sumobot.jpg",
+    link: "https://github.com/BrianLi23/Sumo-bot",
+  },
+  {
+    title: "Sparse Autoencoder",
+    description:
+      "Built an autoencoder neural network that reconstructs the CICIoT2023 to reduce its dataset while maintaining important features.",
+    tags: ["Python", "PyTorch", "TensorFlow", "Machine Learning"],
+    image: "/LearningCurve33.png",
+    link: "https://github.com/BrianLi23/Sparse-Autoencoder/blob/main/wat-ai-sparse-autoencoder.ipynb",
   },
 ];
