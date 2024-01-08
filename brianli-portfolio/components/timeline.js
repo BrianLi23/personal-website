@@ -36,9 +36,13 @@ export default function Timeline() {
                 fontSize: "1.5rem",
               }}
             >
-              <h3 className="font-semibold capitalize">{data.title}</h3>
-              <h4 className="font-normal !mt-0">{data.location}</h4>
-              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
+              <h3 className="font-semibold capitalize text-gray-700">
+                {data.title}
+              </h3>
+              <h4 className="font-normal !mt-0 text-gray-700">
+                {data.location}
+              </h4>
+              <p className="!mt-1 !font-normal text-gray-700">
                 {data.description}
               </p>
             </VerticalTimelineElement>

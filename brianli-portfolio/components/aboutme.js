@@ -31,10 +31,11 @@ export default function AboutMe() {
               src={"/websitepic2.jpg"}
               width={520}
               height={500}
+              alt="Brian Li"
               className="object-cover transition-all duration-300 transform hover:scale-110"
             />
           </div>
-          <div className="text-5xl flex justify-start gap-28 py-10 text-slate-700">
+          <div className="text-5xl flex justify-start gap-28 py-10 text-slate-700 dark:text-white">
             <a
               href="https://github.com/BrianLi23"
               target="_blank"
@@ -98,7 +99,7 @@ export default function AboutMe() {
                   setPhotoVisible(null);
                   setCurrPhoto("personalphoto1");
                 }}
-                className="underline text-blue-800"
+                className="underline text-blue-800 dark:text-blue-100"
               >
                 Brian Li,
               </span>{" "}
@@ -111,7 +112,7 @@ export default function AboutMe() {
                   setPhotoVisible(null);
                   setCurrPhoto("personalphoto2");
                 }}
-                className="underline text-blue-800"
+                className="underline text-blue-800 dark:text-blue-100"
               >
                 connecting with others{" "}
               </span>
@@ -123,6 +124,7 @@ export default function AboutMe() {
               src={photoVisible ? imageMap[photoVisible] : imageMap[currPhoto]}
               width={400}
               height={500}
+              alt="photo"
               className={`transition-all content-center m-10 mt-15 duration-500 ${
                 imageMap[photoVisible]
                   ? "opacity-100 scale-100 duration-500"

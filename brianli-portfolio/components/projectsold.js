@@ -39,6 +39,7 @@ export default function ProjectsOld() {
         <div>
           <Image
             src={"/sumobot.jpg"}
+            alt="Sumo Bot"
             width={585}
             height={500}
             className="mr-12 transition-all duration-300 transform hover:scale-95"

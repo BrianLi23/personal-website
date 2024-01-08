@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import useDarkMode from "@/components/darkmode";
+import useDarkMode from "@/components/darkmodetoggle";
 import Header from "@/components/header";
 import Timeline from "@/components/timeline";
 import Scroller from "@/components/scroller";
@@ -14,25 +14,15 @@ import AboutMe from "@/components/aboutme";
 import WorkExperience from "@/components/workexperience";
 
 export default function Home() {
-  const { darkMode } = useDarkMode();
-  // This ensures that the component re-renders when darkMode changes
-  useEffect(() => {
-    // This forces a re-render when darkMode changes
-  }, [darkMode]);
-
   return (
-    <div
-      className={`font-nexa ${darkMode ? "dark" : ""} ${
-        darkMode ? "text-white" : "text-slate-700"
-      }`}
-    >
+    <div className="font-nexa bg-white text-slate-700 dark:bg-slate-700 dark:text-white">
       <Head>
         <title>Brian Li's Portfolio</title>
         <meta name="description" content="  "></meta>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
 
-      <main className="bg-white dark:bg-slate-700">
+      <main className="">
         <motion.section
           className="min-h-screen"
           initial={{ opacity: 0, y: -100 }}
@@ -44,9 +34,7 @@ export default function Home() {
           <AboutMe />
           <SectionHeading>Projects</SectionHeading>
           <Projects />
-          <div className="mt-24">
-            <Skills />
-          </div>
+          <Skills />
           <SectionHeading>Timeline</SectionHeading>
           <Timeline />
           <Footer />
