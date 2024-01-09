@@ -1,5 +1,5 @@
 import React from "react";
-import SectionHeading from "../components/sectionheading";
+import SectionHeading from "./sectionheading";
 import { skillsList } from "@/lib/data";
 import { motion } from "framer-motion";
 
