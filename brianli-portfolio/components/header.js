@@ -40,7 +40,7 @@ export default function Header() {
         <li className="relative mb-20">
           <a
             className="bg-gradient-to-r from-slate-300 to-slate-400 text-white px-4 py-2 rounded-md ml-8 dark:from-gray-900 dark:to-gray-600 dark:text-gray-300"
-            href="/BrianLiResume.pdf"
+            href="/BrianLiResume1.pdf"
             target="_blank"
           >
             Resume

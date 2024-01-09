@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/blob": "^0.16.1",
     "caniuse-lite": "^1.0.30001561",
     "framer-motion": "^10.16.16",
     "next": "14.0.1",
