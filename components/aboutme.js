@@ -104,8 +104,7 @@ export default function AboutMe() {
                 Brian Li,
               </span>{" "}
               a first year Computer Engineering student at the University of
-              Waterloo. My passions lie in AI development and firmware
-              tinkering; I'm keen on{" "}
+              Waterloo. My passions lie in both and firmware AI development; I'm keen on{" "}
               <span
                 onMouseEnter={() => setPhotoVisible("personalphoto2")}
                 onMouseLeave={() => {
