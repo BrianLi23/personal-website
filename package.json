@@ -11,7 +11,8 @@
   "dependencies": {
     "@vercel/blob": "^0.16.1",
     "caniuse-lite": "^1.0.30001561",
-    "framer-motion": "^10.16.16",
+    "framer-motion": "^10.18.0",
+    "gsap": "^3.12.5",
     "next": "^14.0.4",
     "react": "^18",
     "react-dom": "^18",

@@ -23,10 +23,10 @@ export default function AboutMe() {
   const [photoVisible, setPhotoVisible] = useState(null);
   const [currPhoto, setCurrPhoto] = useState("white");
   return (
-    <main>
-      <div className="flex px-10">
-        <div className="ml-10">
-          <div className="inline-block max-w-[520px] max-h-[667px] relative overflow-hidden ">
+    <main className="px-10 md:px-2">
+      <div className="flex flex-col md:flex-row md:px-12 md:mb-12">
+        <div className="md:ml-10">
+          <div className="inline-block max-w-full max-h-full relative overflow-hidden ">
             <Image
               src={"/websitepic2.jpg"}
               width={520}
@@ -35,7 +35,7 @@ export default function AboutMe() {
               className="object-cover transition-all duration-300 transform hover:scale-110"
             />
           </div>
-          <div className="text-5xl flex justify-start gap-28 py-10 text-slate-700 dark:text-white">
+          <div className="text-5xl flex justify-start gap-14 md:gap-28 py-5 md:py-12 text-slate-700 dark:text-white">
             <a
               href="https://github.com/BrianLi23"
               target="_blank"
@@ -84,12 +84,12 @@ export default function AboutMe() {
             </a>
           </div>
         </div>
-        <div className="pl-64">
+        <div className="py-8 md:py-0 md:pl-64">
           <div>
-            <h2 className="text-5xl py-2">Brian Li</h2>
-            <h3 className="text-2xl py-2">Developer, Student, Learner</h3>
+            <h2 className="text-5xl py-2 md:text-5xl">Brian Li</h2>
+            <h3 className="text-2xl py-2 md:text-2xl">Developer, Student, Learner</h3>
             <p
-              className="text-xl py-2 leading-loose "
+              className="leading-loose py-2 md:text-xl md:leading-loose "
               style={{ maxWidth: "600px" }}
             >
               Hello, my name is{" "}
@@ -99,19 +99,19 @@ export default function AboutMe() {
                   setPhotoVisible(null);
                   setCurrPhoto("personalphoto1");
                 }}
-                className="underline text-blue-800 dark:text-blue-100"
+                className=" text-blue-600 dark:text-blue-100"
               >
                 Brian Li,
               </span>{" "}
-              a first year Computer Engineering student at the University of
-              Waterloo. My passions lie in both and firmware AI development; I'm keen on{" "}
+              a second year Computer Engineering student at the University of
+              Waterloo. My passions lie in both firmware and AI development; I'm keen on{" "}
               <span
                 onMouseEnter={() => setPhotoVisible("personalphoto2")}
                 onMouseLeave={() => {
                   setPhotoVisible(null);
                   setCurrPhoto("personalphoto2");
                 }}
-                className="underline text-blue-800 dark:text-blue-100"
+                className=" text-blue-600 dark:text-blue-100"
               >
                 connecting with others{" "}
               </span>

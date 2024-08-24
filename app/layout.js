@@ -1,17 +1,19 @@
+"use client"
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { AnimatePresence } from 'framer-motion';
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Personal Website",
-  description: "Created by Brian Li",
-};
-
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-white`}>
+      <div className="relative z-0">
+          {children}
+      </div>
+      </body>
+
     </html>
   );
 }

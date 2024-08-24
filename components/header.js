@@ -1,18 +1,23 @@
 "use client";
+
 import React from "react";
 import useDarkMode from "./darkmodetoggle";
 import Image from "next/image";
+import Link from 'next/link';
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
+import { AnimatePresence } from "framer-motion";
+import TransitionLink from "./transitionlink";
 
 export default function Header() {
   const { darkMode, toggleDarkMode } = useDarkMode();
   return (
-    <nav className="px-20 py-10 mb-12 flex justify-between">
+    <nav className="flex flex-row justify-between px-12 py-8 md:px-28">
+    <div className="flex flex-col gap-8 items-center md:py-10 md:flex-col md:justify-between md:gap-8">
       {darkMode === "light" ? (
         <Image
-          src={"/websitelogo.png"}
-          width={200}
-          height={200}
+          src={"/file.png"}
+          width={215}
+          height={215}
           alt="website logo"
         />
       ) : (
@@ -23,30 +28,14 @@ export default function Header() {
           alt="website logo dark mode"
         />
       )}
-      <ul className="font-nexa flex items-center">
-        <button type="button" onClick={toggleDarkMode}>
-          {darkMode === "light" ? (
-            <BsFillMoonStarsFill
-              className="cursor-pointer text-2xl relative mb-20"
-              color="rgb(51,65,85)"
-            />
-          ) : (
-            <BsFillSunFill
-              className="cursor-pointer text-2xl relative mb-20"
-              color="white"
-            />
-          )}
-        </button>
-        <li className="relative mb-20">
-          <a
-            className="bg-gradient-to-r from-slate-300 to-slate-400 text-white px-4 py-2 rounded-md ml-8 dark:from-gray-900 dark:to-gray-600 dark:text-gray-300"
-            href="/BrianLiResume1.pdf"
-            target="_blank"
-          >
-            Resume
-          </a>
-        </li>
-      </ul>
-    </nav>
+    </div>
+    <div className="flex gap-10 pl-10 md:gap-20 md:my-20">
+    <TransitionLink href="/" label="info."/>
+    <TransitionLink href="/work" label="work."/>
+    <TransitionLink href="/work" label="blog."/>
+  </div>
+
+  </nav>
+
   );
 }
