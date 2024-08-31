@@ -30,6 +30,7 @@ export default function Header() {
       )}
     </div>
     <div className="flex gap-10 pl-10 md:gap-20 md:my-20">
+    <TransitionLink href="/BrianLiResume1.pdf" label="resume."/>
     <TransitionLink href="/" label="info."/>
     <TransitionLink href="/work" label="work."/>
     <TransitionLink href="/work" label="blog."/>
