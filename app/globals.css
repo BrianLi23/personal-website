@@ -130,9 +130,25 @@ body {
     align-items: center;
   }
 
-  .scroll-section h3 {
-    color: var(--primaryTextColor);
-    letter-spacing: var(--headlineMedium);
-    font-size: var(--headlineMedium);
-    text-transform: uppercase;
+/* Mobile styles */
+@media (max-width: 767px) {
+  .scroll-section-outer.mobile {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
   }
+
+  .scroll-section-outer.mobile .scroll-section-inner {
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .scroll-section-outer.mobile .scroll-section {
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem 0;
+    box-sizing: border-box;
+  }
+}

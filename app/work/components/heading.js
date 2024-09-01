@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Heading({section}) {
   return (
-    <div className='flex flex-col justify-center items-center h-full py-56'>
+    <div className='flex flex-col justify-center items-center h-full py-32'>
       <h1 className="text-4xl ">
       {section}
       </h1>
