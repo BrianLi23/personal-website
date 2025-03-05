@@ -1,5 +1,16 @@
 # Personal Website 
 
-A simple personal portfolio that highlight some of my projects and extracurriculars.
+## Getting Started
+```
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-The website was built with React and Tailwind CSS, and is also hosted on Vercel.
+Open: http://localhost:3000
+
+The website was built with NextJS and Tailwind CSS, and is also hosted on Vercel.
