@@ -4,104 +4,133 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import ProjectBox from "./projectbox";
 
-
 function Projects() {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  gsap.registerPlugin(ScrollTrigger);
+  // Only register the plugin once
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+    }
+  }, []);
 
+  // Handle resize with debounce for better performance
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
+    // Initial check
     handleResize();
-    window.addEventListener('resize', handleResize);
 
+    // Debounce resize event
+    let resizeTimer;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(handleResize, 100);
+    };
+
+    window.addEventListener('resize', debouncedResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', debouncedResize);
+      clearTimeout(resizeTimer);
     };
   }, []);
 
+  // Animation setup with cleanup
   useEffect(() => {
-    let animation;
+    // Skip animation setup on mobile
+    if (isMobile || !sectionRef.current || !triggerRef.current) return;
 
-    if (!isMobile) {
-      animation = gsap.fromTo(
+    const ctx = gsap.context(() => {
+      const animation = gsap.fromTo(
         sectionRef.current,
-        {
-          translateX: 0,
-        },
+        { translateX: 0 },
         {
           translateX: "-300vw",
           ease: "none",
-          duration: 1,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: "top top",
             end: "2000 top",
             scrub: 0.6,
             pin: true,
+            anticipatePin: 1, // Improves pin performance
+            fastScrollEnd: true, // Better performance for fast scrolling
+            invalidateOnRefresh: true, // Recalculate on resize
           },
         }
       );
-    }
-    return () => {
-      if (animation) animation.kill();
-    };
+
+      return () => {
+        // Ensure cleanup
+        animation.kill();
+        ScrollTrigger.getAll().forEach(st => st.kill());
+      };
+    });
+
+    return () => ctx.revert(); // This handles proper cleanup
   }, [isMobile]);
 
-  return (
-    <section className={`scroll-section-outer ${isMobile ? 'mobile' : ''}`}>
-      {/* The section up act just as a wrapper. If the trigger (below) is the
-      first jsx element in the component, you get an error on route change */}
+  // Project data - move outside the render function to avoid re-creating on each render
+  const projects = [
+    {
+      title: "Scyta",
+      tags: ["Tauri", "Groq", "Faiss"],
+      comment: "\"Scyta, run rm -rf ~/\"",
+      description: "A computer software built with multi-agent capabilties that can concurrently process and handle your files systems. Allowing for searching, indexing, and retrieving files with ease.",
+      imageUrl: "/scyta.png",
+      projectUrl: "https://github.com/BrianLi23/scyta"
+    },
+    {
+      title: "Spotify-Roots",
+      tags: ["Web Dev", "RAG Approach", "Llama-cpp"],
+      comment: "\"That's a double entendre\"",
+      description: "Ever wondered the context and backstory behind your favourite artists, albums and tracks? Leveraging song data and sentiments, the website can generate the origin of all your desired tracks.",
+      imageUrl: "/spotify-roots.png",
+      projectUrl: "https://github.com/BrianLi23/spotify-roots"
+    },
+    {
+      title: "Autoencoder",
+      tags: ["Pytorch", "DDP"],
+      comment: "\"Dataset, minimize\"",
+      description: "Built both denoising and sparse autoencoders utilizing Distributed Data Parallel (DDP) for training and Optuna for hyperparameter optimization.",
+      imageUrl: "/sparseautoencoder.png",
+      projectUrl: "https://github.com/BrianLi23/sparse-autoencoder"
+    },
+    {
+      title: "Go-neural",
+      tags: ["Golang"],
+      comment: "\"Overcomplicated neural network\"",
+      description: "A fully from scratch built implementation of neural network with concurrent training and processing written completely in Golang.",
+      imageUrl: "/golang.jpg",
+      projectUrl: "https://github.com/BrianLi23/go-neural"
+    },
+  ];
 
-      {/* The div below act just as a trigger. As the doc suggests, the trigger and 
-      the animation should alway be two separated refs */}
-      <div ref={triggerRef}>
+  // Mobile view renders a regular vertical layout
+  if (isMobile) {
+    return (
+      <div className="flex flex-col gap-8 py-10 px-4">
+        {projects.map((project, index) => (
+          <ProjectBox key={index} {...project} />
+        ))}
+      </div>
+    );
+  }
+
+  // Desktop view with horizontal scroll
+  return (
+    <section className="scroll-section-outer">
+      <div ref={triggerRef} className="scroll-trigger">
         <div ref={sectionRef} className="scroll-section-inner">
-          <div className="scroll-section">
-          <ProjectBox 
-          title={"Spotify-Roots"} 
-          tags={["Web Dev", "RAG Approach", "Llama-cpp"]} 
-          comment={"\u201CThat's a double entendre\u201C"}
-          description="Ever wondered the context and backstory behind your favourite artists, albums and tracks? Leveraging up to date data of current hit songs, the website utilizes the power of LLMs and lyric analysis to generate the origin of your desired track."
-          imageUrl="/spotify-roots.png"
-          projectUrl="https://github.com/BrianLi23/spotify-roots"
-          />
-          </div>
-          <div className="scroll-section">
-          <ProjectBox 
-          title={"Sparse Autoencoder"} 
-          tags={["Pytorch", "Numpy", "Llama-cpp"]} 
-          comment={"\u201CDataset, minimize\u201C"}
-          description="Ever wondered the context and backstory behind your favourite artists, albums and tracks? Leveraging up to date data of current hit songs, the website utilizes the power of LLMs and lyric analysis to generate the origin of your desired track."
-          imageUrl="/sparseautoencoder.png"
-          projectUrl="https://github.com/BrianLi23/sparse-autoencoder"
-          />
-          </div>
-          <div className="scroll-section">
-          <ProjectBox 
-          title={"Data Visualization Software"} 
-          tags={["JavaFx", "Java", "Data Processing"]}
-          comment={"\u201CGraphs and more graphs\u201C"} 
-          description="Aiming to visualize correlation and difference of old and newly developed Artificial Intelligence systems. This data visualization project isplays the number of test parameters used in notable artificial intelligence systems as well as its domain type and entity."
-          imageUrl="/longdatavisual.png"
-          projectUrl="https://github.com/BrianLi23/data-visualization-project"
-          />
-          </div>
-          <div className="scroll-section">
-          <ProjectBox 
-          title={"Scyta"} 
-          tags={["C++", "RAG Approach", "Llama-cpp"]} 
-          comment={"\u201CScyta, delete files\u201C"}
-          description="Work in Progress..."
-          imageUrl="/scyta.png"
-          projectUrl="https://github.com/BrianLi23/scyta"
-          />
-          </div>
+          {projects.map((project, index) => (
+            <div key={index} className="scroll-section">
+              <ProjectBox {...project} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
